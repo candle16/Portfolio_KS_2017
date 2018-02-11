@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Rubik" rel="stylesheet">
+  <title>Flashcards_</title>
+</head>
+
+<style>
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+header {
+  margin-bottom: 75px;
+  margin-top: 75px;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  /*padding-right: 175px;*/
+  color: green;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: forestgreen;
+  font-size: 1.2em;
+  /*padding-right: 175px;*/
+}
+
+.wrapper {
+  text-align: center;
+}
+
+p {
+  font-weight: bold;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+li:hover {
+  color:blue;
+}
+
+.mainWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.newClass {
+  color:red;
+  font-size: 20px;
+}
+
+</style>
+
+<header>
+<h1> Quick Question </h1>
+<h2> Click on the answers and watch your score </h2>
+</header>
+
+<body>
+
+<section class="mainWrapper">
+
+  <section class="wrapper">
+    <div class="card1">
+      <p> 1. How many publicly-funded school boards does Canada have? </p>
+      <ul>
+        <li class="a1 right"> a. 429 </li>
+        <li class="b1"> b. 500 </li>
+        <li class="c1"> c. 358 </li>
+      </ul>
+    </div>
+
+    <div class="card2">
+      <p> 2. Which Canadian education jurisdictions have introduced coding into their curricula?</p>
+      <ul>
+        <li class="a2 right">a. Two, British Colombia and Nova Scotia</li>
+        <li class="b2">b. Three, BC, Nova Scotia and Ontario </li>
+        <li class="c2">c. One, New Brunswick</li>
+      </ul>
+    </div>
+
+    <div class="card3">
+      <p> 3. What program did the Keewatin-Patricia DSB in Kenora pilot in 2016-2017 to increase the number of indigenous high school graduates? </p>
+      <ul>
+        <li class="a3 right">a. Graduation leads (staff-student one-on-one mentorships)</li>
+        <li class="b3">b. Summer school </li>
+        <li class="c3">c. Free textbooks </li>
+      </ul>
+    </div>
+
+    <div class="card4">
+      <p> 4. Which province or territory has only one English-language and one French-language school board?</p>
+      <ul>
+        <li class="a4">a. Prince Edward Island</li>
+        <li class="b4">b. Yukon</li>
+        <li class="c4 right">c. Newfoundland and Labrador</li>
+      </ul>
+    </div>
+
+    <div class="card5">
+      <p>5. How much did the Ontario Ministry of Education recently invest in math education?</p>
+      <ul>
+        <li class="a5">a. $50 million</li>
+        <li class="b5 right">b. $60 million</li>
+        <li class="c5">c. $70 million</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="counter">
+    <p class="score"> Score </p>
+    <div class="tally"> 0 </div>
+  </section>
+
+</section>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>
+
+$(function() {
+
+var counter = 0
+
+var answer = {
+  '.card1':'.a1',
+  '.card2':'.a2',
+  '.card3': '.a3',
+  '.card4':'.c4',
+  '.card5':'.b5'
+}
+
+  $('.card2,.card3,.card4,.card5').fadeOut();
+
+  for (item in answer) {
+
+    $(answer[item]).on('click', function() {
+
+      $(this).append('<span> You are right!</span>');
+      counter = counter + 1
+      console.log(counter);
+      $('.tally').html(`${counter}`);
+
+    });
+  }
+
+    $('.a1,.b1,.c1').on('click', function() {
+      // $(this).append('<span> Oops, wrong answer.</span>');
+      $('.card2').fadeIn();
+      $('.card1').fadeOut();
+    });
+
+
+    $('.a2,.b2,.c2').on('click', function() {
+      // $(this).append('<span> Oops, wrong answer.</span>');
+      $('.card3').fadeIn();
+      $('.card2').fadeOut();
+    });
+
+    $('.a3,.b3,.c3').on('click', function() {
+      // $(this).append('<span> Oops, wrong answer.</span>');
+      $('.card4').fadeIn();
+      $('.card3').fadeOut();
+    });
+
+    $('.a4,.b4,.c4').on('click', function() {
+      // $(this).append('<span> Oops, wrong answer.</span>');
+      $('.card5').fadeIn();
+      $('.card4').fadeOut();
+    });
+
+
+
+
+
+
+
+});
+
+
+
+</script>
+</body>
+</html>
