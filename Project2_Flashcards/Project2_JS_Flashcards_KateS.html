@@ -181,9 +181,13 @@ var answer = {
       $('.card4').fadeOut();
     });
 
+    $('.a5,.b5,.c5').on('click', function() {
+      // $(this).append('<span> Oops, wrong answer.</span>');
+      $('.wrapper').fadeOut();
+      $('.score, .tally').css('font-size','3em');
+      $('.tally').css('text-align', 'center');
 
-
-
+    });
 
 
 
